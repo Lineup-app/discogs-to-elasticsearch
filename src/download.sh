@@ -8,4 +8,5 @@ rm -rf $BASEDIR/source/
 mkdir $BASEDIR/source/
 
 curl https://discogs-data.s3-us-west-2.amazonaws.com/data/$YEAR/discogs_$1_$2.xml.gz --output $FILENAME
-python $BASEDIR/xmlsplit.py $2 $FILENAME
+python $BASEDIR/xmlsplit.py $2
+./bulkes.sh $2

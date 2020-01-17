@@ -6,11 +6,11 @@ from shutil import rmtree
 import json
 import os
 
-sourceFile = str(sys.argv[2])
+# sourceFile = str(sys.argv[2])
 itemType = str(sys.argv[1])
 index = 0
 group = 0
-chunkSize = 50000
+chunkSize = 35000
 fileName = itemType + '/' + itemType + str(group) + '.json'
 file = None
 
@@ -40,6 +40,7 @@ def create_file():
     global file
     global fileName
     if (file):
+        # file.write('\n')
         file.close()
     create_file_name()
     file = open(fileName, 'a')
@@ -74,6 +75,6 @@ def handle_row(_, row):
 create_dir()
 # create_file_name()
 # create_file()
-xmltodict.parse(GzipFile('./src/source/artists.xml.gz'),
+xmltodict.parse(GzipFile('./source/'+itemType+'.xml.gz'),
                 item_depth=2, item_callback=handle_row)
 print("parsing done")
