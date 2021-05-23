@@ -10,7 +10,7 @@ import os
 itemType = str(sys.argv[1])
 index = 0
 group = 0
-chunkSize = 35000
+chunkSize = 10000
 fileName = itemType + '/' + itemType + str(group) + '.json'
 file = None
 
@@ -20,9 +20,9 @@ print('Argument List:', str(sys.argv[1]))
 
 def create_dir():
     print("create_dir")
-    global itemType       
+    global itemType
     if os.path.isdir(itemType):
-        rmtree(itemType)     
+        rmtree(itemType)
     mkdir(itemType)
 
 
@@ -59,12 +59,12 @@ def writeFile(index, data):
     # print('write file', index, group)
     if (index == group):
         create_file()
-    dcdata = json.dumps(data)+ "\n"
+    dcdata = json.dumps(data) + "\n"
     file.write(make_header_row(data['id']) + "\n")
-    file.write(dcdata.replace('@',''))
+    file.write(dcdata.replace('@', ''))
 
 
-def handle_row(_, row):    
+def handle_row(_, row):
     global index
     group = index % chunkSize
     writeFile(index, row)

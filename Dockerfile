@@ -6,5 +6,5 @@ ENV AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
 
 COPY ./src /src
 
-RUN /src/download.sh 20200101 artists
+RUN /src/download.sh 20200501 artists
 RUN /src/bulkes.sh artists

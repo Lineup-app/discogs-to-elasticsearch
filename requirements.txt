@@ -1,3 +1,3 @@
-aws-cli=1.16.84
-awscurl=0.17
-xmltodict=0.12.0
+aws-cli==1.16.84
+awscurl==0.17
+xmltodict==0.12.0
